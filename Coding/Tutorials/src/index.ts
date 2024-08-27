@@ -607,3 +607,248 @@
 // ----------------------
 // >> Exclude and Include (Exclude is used to exclude the files from compilation and Include is used to include the files in compilation) (Like node_modules, dist, build etc) (Exlude and Include can be added in the config file if not added by default)
 // ---------------------- 
+
+
+// ----------------------------------------------------------------------------------------
+// >>>>> #23: TypeScript Object-Oriented Programming Tutorial👉 Understanding Classes and Constructors in Hindi
+// ---------------------------------------------------------------------------------------
+
+// class Person {
+//     name: string;
+//     age: number;
+//     hobbbies: string[];
+//     constructor(name: string, age: number, hobbbies: string[]){
+//         this.name = name;
+//         this.age = age;
+//         this.hobbbies = hobbbies;
+//     }
+
+    // displayPerson(){
+    //     console.log(`Name: ${this.name}, Age: ${this.age}, Hobbies: ${this.hobbbies}`);
+    // }
+// }
+
+// const person1 = new Person("Asad", 23, ["Cricket", "Football", "Coding"]);
+// const person2 = new Person("Ali", 22, ["Cricket", "Football", "Coding"]);
+// const person3 = new Person("Ahmed", 21, ["Cricket", "Football", "Coding"]);
+
+// console.log(person2)
+
+
+// ----------------------------------------------------------------------------------------
+// >>>>> #24: Inheritance in TypeScript in Hindi | Extends & Super Keyword with Real Life Example
+// ---------------------------------------------------------------------------------------
+
+// class Person {
+//     name: string;
+//     age: number;
+//     hobbies: string[];
+//     constructor(name: string, age: number, hobbies: string[]){
+//         this.name = name;
+//         this.age = age;
+//         this.hobbies = hobbies;
+//     }
+
+//     displayPerson(){
+//         return(`I am ${this.name}, of ${this.age} years old. My hobbies are ${this.hobbies}.`);
+//     }
+// }
+
+// class Student extends Person {
+//     grade: number;
+
+//     constructor(name: string, age: number, hobbies: string[], grade:number){
+//         super(name, age, hobbies);
+//         this.grade = grade;
+//     }
+
+    // displayPerson(){
+    //     return(`${super.displayPerson()} I am in grade ${this.grade}`);
+    // }
+// }
+
+// const person1 = new Person("Asad", 23, ["Cricket", "Football", "Coding"]);
+// const person2 = new Person("Ali", 22, ["Cricket", "Football", "Coding"]);
+// const person3 = new Person("Ahmed", 21, ["Cricket", "Football", "Coding"]);
+// const student1 = new Student("Ahmed", 21, ["Cricket", "Football", "Coding"], 10)
+
+// console.log(person2.displayPerson())
+// console.log(student1.displayPerson();)
+
+// ----------------------------------------------------------------------------------------
+// >>>>> #25: Access Modifiers in OOP | Public, Protected and Private 
+// Public    :  Accessible in Parent, Child and Outside the class
+// Protected :  Accessible in Parent and Child 
+// Private  :   Accessible in only Parent
+// ===> Outside class means in main function or outside any class
+// ---------------------------------------------------------------------------------------
+
+// class Person {
+//     public name: string;
+//     protected age: number;
+//     private hobbies: string[];
+//     constructor(name: string, age: number, hobbies: string[]){
+//         this.name = name;
+//         this.age = age;
+//         this.hobbies = hobbies;
+//     }
+
+//     displayHobbies(){
+//         console.log(`My hobbies are ${this.hobbies}.`)
+//     }
+
+// }
+
+// class Student extends Person {
+//     grade: number;
+
+//     constructor(name: string, age: number, hobbies: string[], grade:number){
+//         super(name, age, hobbies);
+//         this.grade = grade;
+//     }
+
+// }
+
+// const person1 = new Person("Asad", 23, ["Cricket", "Football", "Coding"]);
+// const student1 = new Student("Ahmed", 21, ["Cricket", "Football", "Coding"], 10)
+
+// console.log(person1.name)
+// // console.log(person1.age) // Property 'age' is protected and only accessible within class 'Person' and its subclasses.
+// // console.log(person1.hobbbies) // Property 'hobbbies' does not exist on type 'Person'.
+// person1.displayHobbies()
+// console.log(student1.age) // Sub Class using Protected Variable
+
+
+// ----------------------------------------------------------------------------------------
+// >>>>> #26: Shorthand Properties in Classes | OOPS
+// ==> To avoid from passing parent class constructor arguments in Child class constructor like above :: constructor(name: string, age: number, hobbies: string[], grade:number) in class Student
+// Above thing done using Access Modifier and TypeScript Infere Feature
+// By default variable type is PUBLIC
+// IF YOU ARE USING ACCESS MODIFIER, THEN THERE IS NO NEED TO DEFINE THE VARIABLES AND USING THIS.VARIABLENAME LIKE THINGS
+// ---------------------------------------------------------------------------------------
+
+// class Person {
+//     constructor(public name: string, public age: number, protected hobbies: string[])
+//     {   }
+
+//     displayPerson(){
+//         console.log(`Name: ${this.name}, Age: ${this.age}, Hobbies: ${this.hobbies}`);
+//     }
+
+// }
+
+// class Student extends Person {
+//     constructor(name: string, age: number, hobbies: string[], public grade:number){
+//         super(name, age, hobbies);
+//         this.grade = grade;
+//     }
+
+// }
+// const person1 = new Person("Asad", 23, ["Cricket", "Football", "Coding"]);
+// person1.displayPerson()
+
+
+// ----------------------------------------------------------------------------------------
+// >>>>> #27: Getter & Setter in OOP :: 
+// (Getters and Setters are used to control the access and modifications of class properties) 
+// (*** Getter and setter are properties not methods ***)         
+// (*** Getter take no parameter while setter take one parameter ***)
+// Setters method allow to set the value of variable with additional logic or validation
+// ***** To check why we need setter and getter see the video *****
+// ---------------------------------------------------------------------------------------
+
+// class Person {
+//     private _age: number | undefined 
+//     constructor(public name: string, protected hobbies: string[])
+//     {   }
+
+//     // Setter Property
+//     public set age(age: number){
+//         if(age > 150 || age < 0){
+//             throw new Error("Age is not Valid!");
+            
+//         }
+//         this._age = age
+//     }
+
+//     // Getter Property (Name cab be anything like age, agee or agee or givemeage etc)
+//     public get age(){
+//         if(this._age === undefined ){
+//             throw new Error("Age is not Defined!");
+            
+//         }
+//         return this._age
+//     }
+
+//     displayPerson(){
+//         console.log(`Name: ${this.name}, Age: ${this._age}, Hobbies: ${this.hobbies}`);
+//     }
+
+// }
+
+// const person1 = new Person("Asad", ["Cricket", "Football", "Coding"]);
+// person1.age = 122 // This is setter use as property not method
+// person1.displayPerson()
+// console.log(person1.age)
+
+
+// ----------------------------------------------------------------------------------------
+// >>>>> #28: Paractise Question :: Bank Account and Temperature Converter
+// ---------------------------------------------------------------------------------------
+
+// ----------------------------------------------------------------------------------------
+// >>>>> #29: Static Properties and Methods in OOP :: 
+// ==> Static properties and method are made to make them accessible directly without creating an instance of the class.
+// ---------------------------------------------------------------------------------------
+
+// class MathOperations {
+//     public static pi: number = Math.pi;
+
+//     public static addNumber(num1: number, num2: number){
+//         return num1 + num2
+//     }
+
+//     public static subtNumber(num1: number, num2: number){
+//         return num1 - num2
+//     }
+
+//     public static mulNumber(num1: number, num2: number){
+//         return num1 * num2
+//     }
+// }
+
+// console.log(MathOperations.pi)
+// console.log(MathOperations.addNumber(4, 5)) 
+// console.log(MathOperations.subtNumber(14, 3))
+// console.log(MathOperations.mulNumber(4, 5)) 
+
+
+// ----------------------------------------------------------------------------------------
+// >>>>> #30: Abstract Classes :: 
+// ==> Abstract Classes provide a way to define common properties and methods that derives classes can share | This promotes code reuse and helps establish a common interface between related classes
+// ---------------------------------------------------------------------------------------
+
+// abstract class Shape{
+//     constructor(protected color: string){}
+
+//     abstract calcArea():number // This and below notation are same
+//     abstract displayArea() => void 
+// }
+
+// class Circle extends Shape {
+//     constructor(protected color: string, protected radius:number){
+//         super(color)
+//     }
+
+//     public calcArea(): number {
+//         return Math.PI * this.radius * this.radius
+//     }
+
+//     public displayArea() {
+//         console.log(`This is a circle of color ${this.color} with area ${Math.PI * this.radius * this.radius}`) 
+//     }
+// }
+
+// const circle1 = new Circle("Red", 5)
+// circle1.calcArea()
+// circle1.displayArea()
