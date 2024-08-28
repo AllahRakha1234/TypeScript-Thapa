@@ -653,3 +653,100 @@
 // const circle1 = new Circle("Red", 5)
 // circle1.calcArea()
 // circle1.displayArea()
+// ----------------------------------------------------------------------------------------
+// >>>>> #31: Interface VS Type :: 
+// 1):-
+// Use custom types when there is need of unions, intersections or mapped types.
+// Use interfaces when defining object shapes or classes that adhere to a contract.
+// 2):-
+// Interfaces can extend other interfaces to inherit their members.
+// Custom types can use unions and intersections for complex type compositions.
+// 3):-
+// Interfaces of same name can be created and can be extended also.
+// Custom types of same name can't be created.
+// ---------------------------------------------------------------------------------------
+// --------------------
+// >> Type
+// --------------------
+// type StudInfo = {
+//     name: string,
+//     age: number
+// }
+// type StudAddr = {
+//     city: string,
+//     state: string
+// }
+// type StudBioData = StudInfo | StudAddr // Union Operator
+// const student1: StudBioData = {
+//     name: "Asad",
+//     age: 12,
+//     city: "Lahore"
+// }
+// console.log(student1)
+// --------------------
+// >> Interfaces
+// --------------------
+// interface StudInfo {
+//     name: string,
+//     age: number
+// }
+// interface StudAddr {
+//     city: string,
+//     state: string
+// }
+// interface StudBioData extends StudInfo, StudAddr{} // This acts as intersection operator
+// const student1: StudBioData = {
+//     name: "Asad",
+//     // age: 12,
+//     // city: "Lahore",
+//     state: "Punjab"
+// }
+// console.log(student1)
+// --------------------
+// >> Classes use Interfaces
+// --------------------
+// interface StudInfo {
+//     name: string,
+//     age: number
+// }
+// interface StudAddr {
+//     city: string,
+//     state: string
+// }
+// interface StudBioData extends StudInfo, StudAddr{} // This acts as intersection operator
+// class StudData implements StudBioData {
+//    constructor(
+//     public name: string,
+//     public age: number, 
+//     public city: string, 
+//     public state: string
+//    ){}
+// }
+// const stud1 = new StudData("Asad", 23, "Lahore", "Punjab")
+// console.log(stud1)
+// console.log(stud1.name)
+// ----------------------------------------------------------------------------------------
+// >>>>> #32: Type Safety with Typeof Guards :: Type Narrowing
+// ==> TypeOf Guard in typescript lets you narrow down the type of the variable based on runtime value. Type Narrowing allows to write type-safe code by ensuring to only operate on the correct type under certain circumstances. 
+// ===> This is particularly useful with *** unions types and generic types ***.
+// ---------------------------------------------------------------------------------------
+// const favGames = (games: string | string[])=>{
+//     // return games.map((game)=>return game)  // Gives error as map in not applicable on string
+//     // Solution is Type Guard OR Type Narrowing
+//     if(typeof games === "object" || Array.isArray(games)){
+//         return games.map((game)=>return game)
+//     }
+//     else (typeof games === "string"){
+//         return games
+//     }
+// }
+// console.log(favGames("Cricket"))
+// console.log(favGames(["Cricket", "Football"]))
+// ----------------------------------------------------------------------------------------
+// >>>>> #33: Functions VS Class Component :: Should I use Functions or Classes in TS
+// ==> For MERN only functional components are enough.
+// ==> Class components can also be used and helpful while learning python, java or cpp OOP
+// ---------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------
+// >>>>> #34: HTML, CSS & TS PROJECT in Project Directory
+// ---------------------------------------------------------------------------------------
